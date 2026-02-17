@@ -90,18 +90,7 @@ export const scheduleData: Lesson[] = [
     week: "always",
     link: "https://teams.microsoft.com/meet/37049442638336?p=kJHT0yXEgbzPGqGXmz"
   },
-  {
-    id: 204,
-    day: "Tuesday",
-    order: 7,
-    timeStart: "18:00",
-    timeEnd: "19:20",
-    subject: "Серверне Web-програмування",
-    type: "Lab",
-    teacher: "Ментинський Сергій Мирославович",
-    week: "always",
-    link: "https://teams.microsoft.com/meet/37049442638336?p=kJHT0yXEgbzPGqGXmz"
-  },
+  // Лабораторна звідси переїхала на середу
 
   // --- СЕРЕДА ---
   {
@@ -110,7 +99,7 @@ export const scheduleData: Lesson[] = [
     order: 3,
     timeStart: "11:40",
     timeEnd: "13:00",
-    subject: "Обробка людської мови (NLP)",
+    subject: "Обробка людської мови",
     type: "Lec",
     teacher: "Чайка Ростислав Михайлович",
     week: "numerator",
@@ -122,7 +111,7 @@ export const scheduleData: Lesson[] = [
     order: 4,
     timeStart: "13:15",
     timeEnd: "14:35",
-    subject: "Обробка людської мови (NLP)",
+    subject: "Обробка людської мови",
     type: "Lec",
     teacher: "Чайка Ростислав Михайлович",
     week: "always",
@@ -134,11 +123,24 @@ export const scheduleData: Lesson[] = [
     order: 5,
     timeStart: "14:50",
     timeEnd: "16:10",
-    subject: "Обробка людської мови (NLP)",
+    subject: "Обробка людської мови",
     type: "Lab",
     teacher: "Чайка Ростислав Михайлович",
     week: "always",
     link: "https://us06web.zoom.us/j/86467867413?pwd=BYbz51bj6bIFEDbwh9ZNJDZztgD0n1.1"
+  },
+  {
+    // ПЕРЕНЕСЕНА ПАРА (СЕРВЕРНЕ - ЛАБА)
+    id: 304, 
+    day: "Wednesday",
+    order: 7,
+    timeStart: "18:00",
+    timeEnd: "19:20",
+    subject: "Серверне Web-програмування",
+    type: "Lab",
+    teacher: "Ментинський Сергій Мирославович",
+    week: "always",
+    link: "https://teams.microsoft.com/meet/37049442638336?p=kJHT0yXEgbzPGqGXmz"
   },
 
   // --- П'ЯТНИЦЯ ---
