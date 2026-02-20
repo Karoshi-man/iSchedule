@@ -6,10 +6,11 @@ interface LessonCardProps {
 }
 
 export function LessonCard({ lesson, onClick }: LessonCardProps) {
-  const dotColor = {
-    Lec: "bg-blue-400",
-    Lab: "bg-purple-400",
-    Prac: "bg-emerald-400",
+  // Кольори для вертикальної лінії (з легким неоновим світінням)
+  const lineStyle = {
+    Lec: "bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.4)]",
+    Lab: "bg-purple-400 shadow-[0_0_8px_rgba(192,132,252,0.4)]",
+    Prac: "bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.4)]",
   };
 
   return (
@@ -27,21 +28,28 @@ export function LessonCard({ lesson, onClick }: LessonCardProps) {
         transition-all duration-300
         group-hover:bg-white/[0.06]
         group-hover:border-white/20
-        flex flex-col gap-1.5 lg:gap-2
+        flex items-center justify-between gap-2
       ">
         
-        {/* Top Row: Тільки крапка типу та час початку */}
-        <div className="flex items-center justify-between">
-           <div className={`w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-full ${dotColor[lesson.type]} shadow-[0_0_8px_rgba(255,255,255,0.3)]`} />
-           <span className="text-[10px] lg:text-[11px] font-bold text-white/60 group-hover:text-white/90 tracking-tight font-sf tabular-nums transition-colors">
-             {lesson.timeStart}
-           </span>
-        </div>
+        {/* Вертикальна лінія-індикатор зліва */}
+        <div className={`
+          absolute left-0 top-1/2 -translate-y-1/2 
+          w-1.5 h-2/3  /* Трохи ширша початкова лінія */
+          rounded-r-full transition-all duration-300 
+          group-hover:h-4/5 /* При наведенні стає довшою, але не на всю висоту */
+          group-hover:w-2   /* І трохи товщою */
+          ${lineStyle[lesson.type]}
+        `} />
 
-        {/* Content: Тільки назва предмета (обрізається, якщо не влазить) */}
-        <h3 className="text-[10px] lg:text-[12px] font-medium leading-tight text-white/80 group-hover:text-white transition-colors line-clamp-2">
+        {/* Назва предмету (зліва, займає вільний простір, обрізається при потребі) */}
+        <h3 className="flex-1 text-[11px] lg:text-[12px] font-medium leading-tight text-white/80 group-hover:text-white transition-colors line-clamp-2 pl-2">
             {lesson.subject}
         </h3>
+
+        {/* Час початку (справа, притиснутий до краю) */}
+        <span className="shrink-0 text-[10px] lg:text-[11px] font-bold text-white/40 group-hover:text-white/80 tracking-tight font-sf tabular-nums transition-colors">
+          {lesson.timeStart}
+        </span>
 
       </div>
     </button>
