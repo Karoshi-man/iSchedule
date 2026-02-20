@@ -102,7 +102,7 @@ export const scheduleData: Lesson[] = [
     subject: "Обробка людської мови",
     type: "Lec",
     teacher: "Чайка Ростислав Михайлович",
-    week: "numerator",
+    week: "always",
     link: "https://us06web.zoom.us/j/86467867413?pwd=BYbz51bj6bIFEDbwh9ZNJDZztgD0n1.1"
   },
   {
@@ -114,7 +114,7 @@ export const scheduleData: Lesson[] = [
     subject: "Обробка людської мови",
     type: "Lec",
     teacher: "Чайка Ростислав Михайлович",
-    week: "always",
+    week: "numerator",
     link: "https://us06web.zoom.us/j/86467867413?pwd=BYbz51bj6bIFEDbwh9ZNJDZztgD0n1.1"
   },
   {
@@ -126,12 +126,23 @@ export const scheduleData: Lesson[] = [
     subject: "Обробка людської мови",
     type: "Lab",
     teacher: "Чайка Ростислав Михайлович",
-    week: "always",
+    week: "numerator",
+    link: "https://us06web.zoom.us/j/86467867413?pwd=BYbz51bj6bIFEDbwh9ZNJDZztgD0n1.1"
+  },
+    {
+    id: 304,
+    day: "Wednesday",
+    order: 4,
+    timeStart: "13:15",
+    timeEnd: "14:35",
+    subject: "Обробка людської мови",
+    type: "Lab",
+    teacher: "Чайка Ростислав Михайлович",
+    week: "denominator",
     link: "https://us06web.zoom.us/j/86467867413?pwd=BYbz51bj6bIFEDbwh9ZNJDZztgD0n1.1"
   },
   {
-    // ПЕРЕНЕСЕНА ПАРА (СЕРВЕРНЕ - ЛАБА)
-    id: 304, 
+    id: 305, 
     day: "Wednesday",
     order: 7,
     timeStart: "18:00",
