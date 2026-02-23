@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { scheduleData, type WeekType, type Lesson } from './data/schedule';
 import { LessonCard } from './components/LessonCard';
-import { LessonModal } from './components/LessonModal'; // <--- ДОДАЛИ ІМПОРТ
+import { LessonModal } from './components/LessonModal';
+import { WeekInfoModal } from './components/WeekInfoModal'; // <--- НОВИЙ ІМПОРТ
 
 function App() {
   const [currentWeek, setCurrentWeek] = useState<WeekType>('numerator');
-  
-  // ДОДАЛИ СТАН ДЛЯ МОДАЛКИ
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
+  
+  // <--- ДОДАНО СТАН ДЛЯ НОВОЇ МОДАЛКИ
+  const [isWeekInfoOpen, setIsWeekInfoOpen] = useState(false); 
   
   const daysMap = [
     { id: 'Monday', label: 'Понеділок' },
@@ -30,7 +32,7 @@ function App() {
         {/* --- BACKGROUND --- */}
         <div className="absolute inset-0 -z-10 animate-bg-shift bg-gradient-to-br from-[#0d1126] via-[#1a1f3c] to-[#020617]" />
         
-        {/* --- HEADER --- */}
+        {/* --- HEADER (CENTER) --- */}
         <header className="absolute top-4 left-1/2 -translate-x-1/2 z-50 shrink-0">
           <div className="flex items-center gap-1 p-1 bg-[#0F1014]/40 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl transition-all duration-300">
             <div className="px-4 py-1.5 border-r border-white/5 mr-1 hidden sm:block">
@@ -58,6 +60,17 @@ function App() {
             </button>
           </div>
         </header>
+
+        {/* --- КНОПКА ІНФОРМАЦІЇ ПРО ТИЖДЕНЬ (TOP RIGHT) --- */}
+        <button
+          onClick={() => setIsWeekInfoOpen(true)}
+          className="absolute top-4 right-4 lg:right-8 z-50 p-2.5 bg-[#0F1014]/40 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl transition-all duration-300 hover:bg-white/10 hover:scale-105"
+          title="Який зараз тиждень?"
+        >
+          <svg className="w-5 h-5 text-white/60 hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+        </button>
 
         {/* --- MAIN CONTENT (FIT SCREEN) --- */}
         <main className="flex-1 w-full flex gap-3 px-4 pt-20 pb-4 min-h-0">
@@ -100,7 +113,6 @@ function App() {
                                     className="h-full w-full animate-smooth"
                                 >
                                     {lesson ? (
-                                        // ДОДАЛИ ONCLICK
                                         <LessonCard 
                                           lesson={lesson} 
                                           onClick={() => setSelectedLesson(lesson)} 
@@ -130,6 +142,13 @@ function App() {
           <LessonModal 
             lesson={selectedLesson} 
             onClose={() => setSelectedLesson(null)} 
+          />
+        )}
+
+        {/* --- НОВА МОДАЛКА ІНФОРМАЦІЇ --- */}
+        {isWeekInfoOpen && (
+          <WeekInfoModal 
+            onClose={() => setIsWeekInfoOpen(false)} 
           />
         )}
     </div>
