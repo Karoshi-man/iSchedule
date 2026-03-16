@@ -26,7 +26,7 @@ export const scheduleData: Lesson[] = [
     type: "Lec",
     teacher: "Довбиш Артур Віталійович",
     week: "denominator",
-    link: "https://meet.google.com/wuq-pxbt-yag" 
+    link: "https://meet.google.com/zin-oxwi-dps" 
   },
   {
     id: 101,
@@ -50,7 +50,7 @@ export const scheduleData: Lesson[] = [
     type: "Lab",
     teacher: "Довбиш Артур Віталійович",
     week: "always",
-    link: "https://meet.google.com/wuq-pxbt-yag"
+    link: "https://meet.google.com/izx-bkee-edn"
   },
 
   // --- ВІВТОРОК ---
